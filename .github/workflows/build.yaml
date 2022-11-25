@@ -5,8 +5,7 @@ on:
     # branches:
     #   - main
     paths:
-      - 'amd64/*'
-      - 'arm64/*'
+      - Dockerfile
       - .github/workflows/build.yaml
 
 jobs:
