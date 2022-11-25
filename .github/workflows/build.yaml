@@ -53,6 +53,4 @@ jobs:
       - name: Delete old images
         uses: actions/delete-package-versions@v3
         with:
-          package-name: ${{ github.repository }}
-          min-versions-to-keep: 4
-          token: ${{ secrets.GITHUB_TOKEN }}
+          package-name: 'devops-container-image'
