@@ -53,4 +53,4 @@ jobs:
       - name: Delete old images
         uses: actions/delete-package-versions@v3
         with:
-          package-name: main
+          package-name: 'sha256:a0362732d1fdc245f401c8100e692850165505bfec7b2921c6dbf7bd13b6c332'
