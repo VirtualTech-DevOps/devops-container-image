@@ -1,11 +1,12 @@
 on:
   push:
-    - main
-    - build-test
-  paths:
-    - Dockerfile-amd64
-    - Dockerfile-arm64
-    - .github/workflows/build.yaml
+    branches:
+      - main
+      - build-test
+    paths:
+      - Dockerfile-amd64
+      - Dockerfile-arm64
+      - .github/workflows/build.yaml
 
 jobs:
   buildx:
