@@ -60,6 +60,7 @@ jobs:
       - name: Delete old images
         uses: smartsquaregmbh/delete-old-packages@v0.6.0
         with:
+          organization: VirtualTech-DevOps
           type: container
           names: |
             devops-container-image
