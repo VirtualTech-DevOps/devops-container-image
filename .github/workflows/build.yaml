@@ -50,14 +50,9 @@ jobs:
       #     tags: ${{ steps.meta.outputs.tags }}
       #     labels: ${{ steps.meta.outputs.labels }}
 
-      - id: repository
-        run: |
-          repo=${{ github.repository }}
-          echo "::set-output name=reponame::${repo#*/}"
-          echo "::set-output name=lowercase::${repo,,}"
-
       - name: Delete old images
         uses: actions/delete-package-versions@v3
         with:
-          package-name: ${{ steps.repository.outputs.reponame }}
+          package-name: ${{ github.repository }}
           min-versions-to-keep: 4
+          token: ${{ secrets.GITHUB_TOKEN }}
