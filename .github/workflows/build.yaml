@@ -14,7 +14,7 @@ jobs:
 
     permissions:
       contents: read
-      packages: write
+      packages: admin
 
     steps:
       - name: Checkout
@@ -59,7 +59,5 @@ jobs:
       - name: Delete old images
         uses: actions/delete-package-versions@v3
         with:
-          owner: github
-          repo: packages
-          package-name: 'devops-container-image'
+          package-name: ${{ github.repository }}
           min-versions-to-keep: 4
