@@ -50,11 +50,14 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
+      - id: repository
+        run: |
+          lower=$(echo ${{ github.repository }} | tr '[A-Z]' '[a-z]')
+          echo "::set-output name=lowercase::$lower"
+
       - name: Delete old images
         uses: actions/delete-package-versions@v3
         with:
-          owner: virtualtech-devops
-          repo: ${{ github.repository }}
-          #package-name: 'virtualtech-devops/devops-container-image'
+          package-name: ${{ steps.repository.outputs.lowercase }}
           min-versions-to-keep: 4
 
