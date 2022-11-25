@@ -45,7 +45,6 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: ${{ env.REGISTRY }}/${{ github.repository }}
-          tags: latest
 
       - name: Build and push for amd64
         uses: docker/build-push-action@v3
