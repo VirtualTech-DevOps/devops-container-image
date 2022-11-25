@@ -52,12 +52,11 @@ jobs:
 
       - id: repository
         run: |
-          lower=$(echo ${{ github.repository }} | tr '[A-Z]' '[a-z]')
-          echo "::set-output name=lowercase::$lower"
+          tolower=$(echo ${{ github.repository }} | tr '[A-Z]' '[a-z]')
+          echo "::set-output name=lowercase::$tolower"
 
       - name: Delete old images
         uses: actions/delete-package-versions@v3
         with:
-          package-name: devops-container-image
+          package-name: 'devops-container-image'
           min-versions-to-keep: 4
-
