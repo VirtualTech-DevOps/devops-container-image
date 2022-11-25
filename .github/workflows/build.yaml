@@ -6,8 +6,8 @@ on:
       - main
       - build-test
     paths:
-      - Dockerfile-amd64
-      - Dockerfile-arm64
+      - 'amd64/*'
+      - 'arm64/*'
       - .github/workflows/build.yaml
 
 jobs:
