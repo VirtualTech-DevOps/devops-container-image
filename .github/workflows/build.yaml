@@ -60,7 +60,7 @@ jobs:
       - name: Delete old images
         uses: smartsquaregmbh/delete-old-packages@v0.6.0
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.GH_ACCESS_TOKEN }}
           organization: VirtualTech-DevOps
           type: container
           names: |
