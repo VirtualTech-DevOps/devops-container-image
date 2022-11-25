@@ -49,3 +49,10 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+      - name: Delete old images
+        uses: actions/delete-package-versions@v3
+        with: 
+          package-name: ${{ github.repository }}
+          min-versions-to-keep: 4
+
