@@ -50,18 +50,10 @@ jobs:
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
 
-      # https://github.com/actions/delete-package-versions
-      # This action does currently not support deleting packages from the GitHub Container Registry. As the npm registry is about to be migrated to the same new architecture as GHCR, this action won't work for npm soon too (see #74).
-      # - name: Delete old images
-      #   uses: actions/delete-package-versions@v3
-      #   with:
-      #     package-name: 'devops-container-image'
-
       - name: Delete old images
         uses: smartsquaregmbh/delete-old-packages@v0.6.0
         with:
-          token: ${{ secrets.GH_ACCESS_TOKEN }}
-          organization: VirtualTech-DevOps
-          type: container
+          keep: 5
+          version-pattern: "^.*$"
           names: |
             devops-container-image
