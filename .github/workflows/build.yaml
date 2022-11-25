@@ -54,6 +54,7 @@ jobs:
         uses: actions/delete-package-versions@v3
         with:
           owner: virtualtech-devops
-          package-name: 'virtualtech-devops/devops-container-image'
+          repo: ${{ github.repository }}
+          #package-name: 'virtualtech-devops/devops-container-image'
           min-versions-to-keep: 4
 
