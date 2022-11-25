@@ -56,3 +56,10 @@ jobs:
         uses: actions/delete-package-versions@v3
         with:
           package-name: 'devops-container-image'
+
+      - name: Delete old images
+        uses: smartsquaregmbh/delete-old-packages@v0.6.0
+        with:
+          type: container
+          names: |
+            devops-container-image
