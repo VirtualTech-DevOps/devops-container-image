@@ -50,15 +50,14 @@ jobs:
       #     tags: ${{ steps.meta.outputs.tags }}
       #     labels: ${{ steps.meta.outputs.labels }}
 
-      # - id: repository
-      #   run: |
-      #     repo=${{ github.repository }}
-      #     echo "::set-output name=onlyrepo::${repo#*/}"
-      #     echo "::set-output name=lowercase::${repo,,}"
+      - id: repository
+        run: |
+          repo=${{ github.repository }}
+          echo "::set-output name=reponame::${repo#*/}"
+          echo "::set-output name=lowercase::${repo,,}"
 
       - name: Delete old images
         uses: actions/delete-package-versions@v3
         with:
-          package-name: ${{ github.repository }}
+          package-name: ${{ steps.repository.outputs.reponame }}
           min-versions-to-keep: 4
-          delete-only-pre-release-versions: true
