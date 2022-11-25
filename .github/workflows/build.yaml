@@ -58,6 +58,6 @@ jobs:
       - name: Delete old images
         uses: actions/delete-package-versions@v3
         with:
-          package-name: ${{ steps.repository.outputs.lowercase }}
+          package-name: devops-container-image
           min-versions-to-keep: 4
 
