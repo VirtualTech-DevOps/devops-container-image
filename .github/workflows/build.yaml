@@ -53,4 +53,4 @@ jobs:
       - name: Delete old images
         uses: actions/delete-package-versions@v3
         with:
-          package-version-id: 53625311
+          package-version-ids: 53625311
