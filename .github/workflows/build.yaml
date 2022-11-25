@@ -52,7 +52,8 @@ jobs:
 
       - name: Delete old images
         uses: actions/delete-package-versions@v3
-        with: 
+        with:
+          owner: virtualtech-devops
           package-name: ${{ github.repository }}
           min-versions-to-keep: 4
 
