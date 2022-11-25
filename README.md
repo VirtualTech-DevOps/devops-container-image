@@ -9,18 +9,18 @@ DevOps作業用のコンテナイメージ。よく使うCLIをインストー�
 
 ### Intel or AMD x86マシン
 
-```
-$ docker image build --compress -t devops-img:latest -f Dockerfile-amd64 .
+```bash
+docker image build --compress -t devops-img:latest -f amd64/Dockerfile .
 ```
 
 ### arm64 or aarch64マシン
 
-```
-$ docker image build --compress -t devops-img:latest -f Dockerfile-arm64 .
+```bash
+docker image build --compress -t devops-img:latest -f arm64/Dockerfile .
 ```
 
 ## 使い方
 
-```
-$ docker container run -it devops-img:latest bash
+```bash
+docker container run -it devops-img:latest bash
 ```
