@@ -2,12 +2,10 @@ name: Build and publish a Docker image
 
 on:
   push:
-    branches:
-      - main
-      - build-test
+    # branches:
+    #   - main
     paths:
-      - 'amd64/*'
-      - 'arm64/*'
+      - Dockerfile
       - .github/workflows/build.yaml
 
 jobs:
@@ -38,33 +36,16 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Extract metadata (tags, labels) for Docker
-        id: meta-amd64
+        id: meta
         uses: docker/metadata-action@v4
         with:
           images: ghcr.io/${{ github.repository }}
-          tags: amd64
 
-      - name: Build and push for amd64
+      - name: Build and push
         uses: docker/build-push-action@v3
         with:
-          context: amd64
-          platforms: linux/amd64
+          context: .
+          platforms: linux/amd64,linux/arm64
           push: true
-          tags: ${{ steps.meta-amd64.outputs.tags }}
-          labels: ${{ steps.meta-amd64.outputs.labels }}
-
-      - name: Extract metadata (tags, labels) for Docker
-        id: meta-arm64
-        uses: docker/metadata-action@v4
-        with:
-          images: ghcr.io/${{ github.repository }}
-          tags: arm64
-
-      - name: Build and push for arm64
-        uses: docker/build-push-action@v3
-        with:
-          context: arm64
-          platforms: linux/arm64
-          push: true
-          tags: ${{ steps.meta-arm64.outputs.tags }}
-          labels: ${{ steps.meta-arm64.outputs.labels }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
