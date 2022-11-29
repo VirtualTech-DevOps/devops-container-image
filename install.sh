@@ -10,7 +10,7 @@ in
         #eks
         curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/v0.120.0/eksctl_Linux_amd64.tar.gz" | tar xz -C /tmp && mv /tmp/eksctl /usr/local/bin
         #kubectl by amazon
-        curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.7/2022-06-29/bin/linux/amd64/kubectl && chmod +x ./kubectl && mv kubectl /usr/local/bin
+        curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.7/2022-10-31/bin/linux/amd64/kubectl && chmod +x ./kubectl && mv kubectl /usr/local/bin
         #helm v3
         curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
         #terraform
@@ -22,7 +22,7 @@ in
         #eks
         curl --silent --location "https://github.com/weaveworks/eksctl/releases/download/v0.120.0/eksctl_Linux_arm64.tar.gz" | tar xz -C /tmp && mv /tmp/eksctl /usr/local/bin
         #kubectl by amazon
-        curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.23.7/2022-06-29/bin/linux/arm64/kubectl && chmod +x ./kubectl && mv kubectl /usr/local/bin
+        curl -o kubectl https://s3.us-west-2.amazonaws.com/amazon-eks/1.24.7/2022-10-31/bin/linux/arm64/kubectl && chmod +x ./kubectl && mv kubectl /usr/local/bin
         #helm v3
         curl https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3 | bash
         #terraform
