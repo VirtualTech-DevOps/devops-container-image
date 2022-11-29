@@ -42,7 +42,7 @@ aws() {
 }
 
 helm() {
-    if [ -z "$HELM_CONFIG_HOME" ] && [ -x "$(which helm)" ]; then
+    if [ -z "$HELM_CONFIG_HOME" ] && [ -x "$(type -P helm)" ]; then
         eval "$(command helm env | grep '^HELM_CONFIG_HOME=')"
     fi
 
